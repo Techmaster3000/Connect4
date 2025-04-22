@@ -15,7 +15,7 @@ C:/Users/jagro/Documents/Unity Projects/Connect 4
 -logFile
 Logs/AssetImportWorker6.log
 -srvPort
-50446
+50486
 -job-worker-count
 9
 -background-job-worker-count
@@ -59,14 +59,14 @@ C:/Users/jagro/Documents/Unity Projects/Connect 4
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [2592]  Target information:
+Player connection [32680]  Target information:
 
-Player connection [2592]  * "[IP] 172.20.224.1 [Port] 0 [Flags] 2 [Guid] 2674909542 [EditorId] 2674909542 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [32680]  * "[IP] 172.22.208.1 [Port] 0 [Flags] 2 [Guid] 2284765316 [EditorId] 2284765316 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [2592]  * "[IP] 192.168.178.149 [Port] 0 [Flags] 2 [Guid] 2674909542 [EditorId] 2674909542 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [32680]  * "[IP] 192.168.178.149 [Port] 0 [Flags] 2 [Guid] 2284765316 [EditorId] 2284765316 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [2592] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [2592] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [32680] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [32680] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 9
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -78,7 +78,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 3.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.43f1 (97272b72f107)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.43f1/Editor/Data/Resources/UnitySubsystems
@@ -94,43 +94,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.43f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.43f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.43f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56032
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56440
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.43f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002382 seconds.
-- Loaded All Assemblies, in  0.298 seconds
+Registered in 0.002058 seconds.
+- Loaded All Assemblies, in  0.323 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.268 seconds
-Domain Reload Profiling: 565ms
-	BeginReloadAssembly (102ms)
+- Finished resetting the current domain, in  0.262 seconds
+Domain Reload Profiling: 584ms
+	BeginReloadAssembly (116ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (28ms)
+	RebuildCommonClasses (31ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (38ms)
-	LoadAllAssembliesAndSetupDomain (119ms)
-		LoadAssemblies (100ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (123ms)
+		LoadAssemblies (113ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (117ms)
-			TypeCache.Refresh (115ms)
-				TypeCache.ScanAssembly (105ms)
+		AnalyzeDomain (120ms)
+			TypeCache.Refresh (118ms)
+				TypeCache.ScanAssembly (108ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (269ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (263ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (235ms)
+		SetupLoadedEditorAssemblies (224ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (20ms)
 			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (48ms)
-			ProcessInitializeOnLoadAttributes (124ms)
-			ProcessInitializeOnLoadMethodAttributes (40ms)
+			BeforeProcessingInitializeOnLoad (39ms)
+			ProcessInitializeOnLoadAttributes (118ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -139,8 +139,8 @@ Domain Reload Profiling: 565ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.600 seconds
-Refreshing native plugins compatible for Editor in 0.80 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.769 seconds
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Assertion failed on expression: '!AssetDatabase::IsAssetImportWorkerProcess()'
 UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
@@ -154,144 +154,54 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 
 [./Library/PackageCache/com.coffee.ui-effect@2fd5dcee7db0/Runtime/Internal/Utilities/CgincPathSync.cs line 51]
 
-Asset Pipeline Refresh (id=8293437d44eceb8488a091780cf10744): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=865b4e7400709a94f9f0070d6a8c85c8): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.600 seconds
-Domain Reload Profiling: 1197ms
-	BeginReloadAssembly (132ms)
+- Finished resetting the current domain, in  0.639 seconds
+Domain Reload Profiling: 1395ms
+	BeginReloadAssembly (142ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (28ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (32ms)
-	LoadAllAssembliesAndSetupDomain (396ms)
-		LoadAssemblies (280ms)
+		CreateAndSetChildDomain (26ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (93ms)
+	LoadAllAssembliesAndSetupDomain (449ms)
+		LoadAssemblies (329ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (197ms)
-			TypeCache.Refresh (140ms)
-				TypeCache.ScanAssembly (127ms)
+		AnalyzeDomain (205ms)
+			TypeCache.Refresh (149ms)
+				TypeCache.ScanAssembly (135ms)
 			BuildScriptInfoCaches (45ms)
 			ResolveRequiredComponents (9ms)
-	FinalizeReload (600ms)
+	FinalizeReload (640ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (477ms)
+		SetupLoadedEditorAssemblies (506ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (2ms)
 			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (90ms)
-			ProcessInitializeOnLoadAttributes (305ms)
-			ProcessInitializeOnLoadMethodAttributes (73ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (322ms)
+			ProcessInitializeOnLoadMethodAttributes (84ms)
 			AfterProcessingInitializeOnLoad (4ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (4ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.58 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.36 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 253 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6110 unused Assets / (6.4 MB). Loaded Objects now: 6832.
-Memory consumption went from 176.0 MB to 169.6 MB.
-Total: 12.431100 ms (FindLiveObjects: 0.983500 ms CreateObjectMapping: 1.117400 ms MarkObjects: 6.746400 ms  DeleteObjects: 3.582200 ms)
+Unloading 255 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6159 unused Assets / (6.3 MB). Loaded Objects now: 6883.
+Memory consumption went from 179.5 MB to 173.2 MB.
+Total: 9.693400 ms (FindLiveObjects: 0.772400 ms CreateObjectMapping: 0.508400 ms MarkObjects: 5.759800 ms  DeleteObjects: 2.650900 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 3216.406645 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Battery Smooth 2 Icon.png
-  artifactKey: Guid(82031b80b43cc524fae78ff6c698aee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Battery Smooth 2 Icon.png using Guid(82031b80b43cc524fae78ff6c698aee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f8a86a5485dfad22c25ad52a7a865f44') in 0.134599 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Battery Tick 3 Icon.png
-  artifactKey: Guid(6c7218760d7e1b041a1cbf797895f78a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Battery Tick 3 Icon.png using Guid(6c7218760d7e1b041a1cbf797895f78a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7077192830baf162f570aa728dfc2db6') in 0.0237079 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Border Double 2-1pt Icon.png
-  artifactKey: Guid(01e5a57de5f823146b89862d2f42f93b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Border Double 2-1pt Icon.png using Guid(01e5a57de5f823146b89862d2f42f93b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28f007d3c65405b6ae79be46003f7dc9') in 0.0249646 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000051 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Border Single 3pt Icon.png
-  artifactKey: Guid(c60e730a62e7dc2458a6b0ba7621a1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Border Single 3pt Icon.png using Guid(c60e730a62e7dc2458a6b0ba7621a1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b8e8cbb45df8ffbfd851a3a6d0c175d1') in 0.0224032 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Border Single 4pt Icon.png
-  artifactKey: Guid(057efff16d907304c8b0990c295fe5c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Border Single 4pt Icon.png using Guid(057efff16d907304c8b0990c295fe5c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a7ee5a69f5fd5e9f6df65eef8c65b751') in 0.0183644 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.384123 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank A Icon.png
-  artifactKey: Guid(9b33052baeedce34f9d3fb0bd54ee01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank A Icon.png using Guid(9b33052baeedce34f9d3fb0bd54ee01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c134d352e36dbc7692f8ab4d31dbe657') in 0.0207691 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Left 3 Icon.png
-  artifactKey: Guid(4f3012bd5d70cd841b352ad5afdb9c3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Left 3 Icon.png using Guid(4f3012bd5d70cd841b352ad5afdb9c3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ee27b0fb7479f5eba72623c1600e5822') in 0.0142268 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.005924 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Right 3 Icon.png
-  artifactKey: Guid(5b55b5f730766e840a5af1096769a00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Right 3 Icon.png using Guid(5b55b5f730766e840a5af1096769a00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf9f7e492d4ddd9ff314ff4b06c644b4') in 0.0202552 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Triangle Icon.png
-  artifactKey: Guid(7b25fbafa09b7ed4c853b32bed5e90f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Triangle Icon.png using Guid(7b25fbafa09b7ed4c853b32bed5e90f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '33ae56dbfc3d9fbdae232a2acfbf0fd8') in 0.0168292 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Right Trigger Icon.png
-  artifactKey: Guid(859fea088a5120b479928f78ad7e5703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Heathen Engineering/Assets/UX/Icons/Flat Icons [Free]/Free Flat Button Blank Right Trigger Icon.png using Guid(859fea088a5120b479928f78ad7e5703) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd5c225a9a35a6aecdc114cbe2ab75d88') in 0.0162815 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 1.80 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6100 unused Assets / (6.2 MB). Loaded Objects now: 6846.
-Memory consumption went from 139.9 MB to 133.7 MB.
-Total: 10.665900 ms (FindLiveObjects: 0.779000 ms CreateObjectMapping: 0.807800 ms MarkObjects: 6.001600 ms  DeleteObjects: 3.076200 ms)
-
-Prepare: number of updated asset objects reloaded= 0
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.641 seconds
-Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.580 seconds
+Refreshing native plugins compatible for Editor in 0.78 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Assertion failed on expression: '!AssetDatabase::IsAssetImportWorkerProcess()'
 UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
@@ -305,47 +215,47 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 
 [./Library/PackageCache/com.coffee.ui-effect@2fd5dcee7db0/Runtime/Internal/Utilities/CgincPathSync.cs line 51]
 
-Asset Pipeline Refresh (id=2d2c70fe166498d4cad2d41b90e17883): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d2b9f7f20f7d2154eba51b519e1af1f4): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.650 seconds
-Domain Reload Profiling: 1290ms
-	BeginReloadAssembly (184ms)
+- Finished resetting the current domain, in  0.628 seconds
+Domain Reload Profiling: 1208ms
+	BeginReloadAssembly (166ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (4ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (44ms)
-	RebuildCommonClasses (32ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (27ms)
-	LoadAllAssembliesAndSetupDomain (382ms)
-		LoadAssemblies (308ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (23ms)
+	LoadAllAssembliesAndSetupDomain (353ms)
+		LoadAssemblies (287ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (166ms)
-			TypeCache.Refresh (10ms)
-				TypeCache.ScanAssembly (1ms)
-			BuildScriptInfoCaches (142ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (650ms)
+		AnalyzeDomain (151ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (133ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (629ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (488ms)
+		SetupLoadedEditorAssemblies (466ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
+			InitializePlatformSupportModulesInManaged (2ms)
 			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (118ms)
-			ProcessInitializeOnLoadAttributes (306ms)
-			ProcessInitializeOnLoadMethodAttributes (54ms)
+			BeforeProcessingInitializeOnLoad (86ms)
+			ProcessInitializeOnLoadAttributes (315ms)
+			ProcessInitializeOnLoadMethodAttributes (55ms)
 			AfterProcessingInitializeOnLoad (4ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Refreshing native plugins compatible for Editor in 1.41 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 1.55 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 35 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6107 unused Assets / (6.6 MB). Loaded Objects now: 6860.
-Memory consumption went from 161.5 MB to 154.9 MB.
-Total: 10.010200 ms (FindLiveObjects: 0.646200 ms CreateObjectMapping: 0.816800 ms MarkObjects: 5.171500 ms  DeleteObjects: 3.374200 ms)
+Unloading 6155 unused Assets / (6.5 MB). Loaded Objects now: 6898.
+Memory consumption went from 159.1 MB to 152.7 MB.
+Total: 11.082400 ms (FindLiveObjects: 0.648100 ms CreateObjectMapping: 0.830500 ms MarkObjects: 6.149800 ms  DeleteObjects: 3.452300 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
