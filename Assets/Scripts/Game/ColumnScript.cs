@@ -38,8 +38,17 @@ public class GameHandler : MonoBehaviour
 
     void Start()
     {
-
         initGame();
+
+        createSlots();
+        createPillars();
+        
+        initCursor();
+        initTokens();
+
+    }
+    private void createSlots()
+    {
         GameObject slotPrefab = new GameObject("Slot");
         MeshFilter filter = slotPrefab.AddComponent<MeshFilter>();
         filter.mesh = slotMesh;
@@ -48,29 +57,6 @@ public class GameHandler : MonoBehaviour
         slotPrefab.transform.localScale = new Vector3(50, 50, 50);
         slotPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + 0.50f, transform.position.z);
 
-        GameObject pillarPrefab = new GameObject("Pillar");
-        MeshFilter pillarFilter = pillarPrefab.AddComponent<MeshFilter>();
-        pillarFilter.mesh = pillarMesh;
-        MeshRenderer pillarRender = pillarPrefab.AddComponent<MeshRenderer>();
-        pillarRender.material = boardMaterial;
-        pillarPrefab.transform.localScale = new Vector3(50, 50, 50);
-        pillarPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + 0.50f, transform.position.z);
-        pillarPrefab.transform.Rotate(0, 0, 90);
-
-        for (int b = 0; b < columnHeight; b++)
-        {
-
-
-            Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z - 1), Quaternion.Euler(90, 0, 0));
-        }
-        GameObject pillarTopPrefab = new GameObject("PillarTop");
-        MeshFilter pillarTopFilter = pillarTopPrefab.AddComponent<MeshFilter>();
-        pillarTopFilter.mesh = pillarTopMesh;
-        MeshRenderer pillarTopRender = pillarTopPrefab.AddComponent<MeshRenderer>();
-        pillarTopRender.material = boardMaterial;
-        pillarTopPrefab.transform.localScale = new Vector3(50, 50, 50);
-        pillarTopPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z);
-        Instantiate(pillarTopPrefab, new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z - 1), Quaternion.Euler(270, 0, 0));
         for (int l = 0; l < rowLength; l++)
         {
             for (int i = 0; i < columnHeight; i++)
@@ -79,20 +65,18 @@ public class GameHandler : MonoBehaviour
                 Instantiate(slotPrefab, new Vector3(transform.position.x + 0.25f, transform.position.y + (1 * i), transform.position.z + (1 * l)), Quaternion.identity);
             }
         }
-        for (int b = 0; b < columnHeight; b++)
-        {
 
-
-            Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z + rowLength), Quaternion.Euler(90, 0, 0));
-        }
-        Instantiate(pillarTopPrefab, new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z + rowLength), Quaternion.Euler(270, 0, 0));
         Destroy(slotPrefab, 0.1f);
-        Destroy(pillarPrefab, 0.1f);
-        Destroy(pillarTopPrefab, 0.1f);
+    }
+    private void initCursor()
+    {
         cursorPrefab.transform.localScale = new Vector3(55f, 55f, 55f);
         cursorPrefab.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         cursorPrefab.GetComponent<MeshRenderer>().material = currentMaterial;
         Instantiate(cursorPrefab, new Vector3(transform.position.x + 0.25f, transform.position.y + 1 + (1 * columnHeight), transform.position.z + (rowLength / 2)), Quaternion.Euler(270, 0, 0));
+    }
+    private void initTokens()
+    {
         token = new GameObject("Token");
         MeshFilter tokenFilter = token.AddComponent<MeshFilter>();
         tokenFilter.mesh = tokenMesh;
@@ -108,6 +92,46 @@ public class GameHandler : MonoBehaviour
 
         token.SetActive(false);
 
+    }
+    private void createPillars()
+    {
+
+        GameObject pillarPrefab = new GameObject("Pillar");
+        MeshFilter pillarFilter = pillarPrefab.AddComponent<MeshFilter>();
+        pillarFilter.mesh = pillarMesh;
+        MeshRenderer pillarRender = pillarPrefab.AddComponent<MeshRenderer>();
+        pillarRender.material = boardMaterial;
+        pillarPrefab.transform.localScale = new Vector3(50, 50, 50);
+        pillarPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + 0.50f, transform.position.z);
+        pillarPrefab.transform.Rotate(0, 0, 90);
+        for (int b = 0; b < columnHeight; b++)
+        {
+
+
+            Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z - 1), Quaternion.Euler(90, 0, 0));
+        }
+        createPillarsTop();
+        for (int b = 0; b < columnHeight; b++)
+        {
+            Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z + rowLength), Quaternion.Euler(90, 0, 0));
+        }
+        Destroy(pillarPrefab, 0.1f);
+        
+    }
+    private void createPillarsTop()
+    {
+        GameObject pillarTopPrefab = new GameObject("PillarTop");
+        MeshFilter pillarTopFilter = pillarTopPrefab.AddComponent<MeshFilter>();
+        pillarTopFilter.mesh = pillarTopMesh;
+        MeshRenderer pillarTopRender = pillarTopPrefab.AddComponent<MeshRenderer>();
+        pillarTopRender.material = boardMaterial;
+        pillarTopPrefab.transform.localScale = new Vector3(50, 50, 50);
+        pillarTopPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z);
+        Instantiate(pillarTopPrefab, new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z - 1), Quaternion.Euler(270, 0, 0));
+       
+        Instantiate(pillarTopPrefab, new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z + rowLength), Quaternion.Euler(270, 0, 0));
+
+        Destroy(pillarTopPrefab, 0.1f);
     }
     private void initGame()
     {
