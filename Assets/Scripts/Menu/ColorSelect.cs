@@ -17,8 +17,6 @@ public class ColorSelect : MonoBehaviour
     }
     public void setPlayer1Color(string color)
     {
-        //set the player 1 color
-        //get the player 1 color from the clicked button
         string hexCode = fetchHex(color);
         PlayerPrefs.SetString("Player1Color", hexCode);
         Debug.Log("Player 1 Color: " + hexCode);
@@ -46,7 +44,7 @@ public class ColorSelect : MonoBehaviour
             case "black":
                 return "#000000";
             case "sky":
-                return "#87CEEB";
+                return "#00CCFF";
             case "pink":
                 return "#FF5FD5";
             case "purple":

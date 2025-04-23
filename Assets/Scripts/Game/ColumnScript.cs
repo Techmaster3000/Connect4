@@ -5,18 +5,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class Slot : MonoBehaviour
+public class GameHandler : MonoBehaviour
 {
+    //variables entered through the main menu
     public int columnHeight;
     public uint gameMode;
     public int rowLength;
+    public Material player1Material;
+    public Material player2Material;
+
+    //meshes
     public Mesh slotMesh;
     public Material boardMaterial;
     public Mesh pillarMesh;
     public Mesh pillarTopMesh;
     public Mesh tokenMesh;
-    public Material player1Material;
-    public Material player2Material;
+
     private Material currentMaterial;
     private int cursorPosition = 0;
     public GameObject cursorPrefab;
@@ -26,9 +30,10 @@ public class Slot : MonoBehaviour
     private GameObject[,] tokenGrid;
     private int[] fullColumns;
     private bool isBusy = false;
+    public bool stopInput = false;
 
     private GameObject globalVolume;
-    private List<GameObject> winningTokens = new List<GameObject>();
+
 
 
     void Start()
@@ -43,7 +48,6 @@ public class Slot : MonoBehaviour
         slotPrefab.transform.localScale = new Vector3(50, 50, 50);
         slotPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + 0.50f, transform.position.z);
 
-        // Create the pillar
         GameObject pillarPrefab = new GameObject("Pillar");
         MeshFilter pillarFilter = pillarPrefab.AddComponent<MeshFilter>();
         pillarFilter.mesh = pillarMesh;
@@ -55,11 +59,10 @@ public class Slot : MonoBehaviour
 
         for (int b = 0; b < columnHeight; b++)
         {
-            //rotate the pillar piece
+
 
             Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z - 1), Quaternion.Euler(90, 0, 0));
         }
-        // Create the top of the pillar
         GameObject pillarTopPrefab = new GameObject("PillarTop");
         MeshFilter pillarTopFilter = pillarTopPrefab.AddComponent<MeshFilter>();
         pillarTopFilter.mesh = pillarTopMesh;
@@ -78,7 +81,7 @@ public class Slot : MonoBehaviour
         }
         for (int b = 0; b < columnHeight; b++)
         {
-            //rotate the pillar piece
+
 
             Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z + rowLength), Quaternion.Euler(90, 0, 0));
         }
@@ -96,13 +99,13 @@ public class Slot : MonoBehaviour
         MeshRenderer tokenRender = token.AddComponent<MeshRenderer>();
         tokenRender.material = currentMaterial;
         token.transform.localScale = new Vector3(100, 100, 50);
-        //add a rigidbody to the token
+
         Rigidbody tokenRigidbody = token.AddComponent<Rigidbody>();
         tokenRigidbody.mass = 1f;
         tokenRigidbody.isKinematic = false;
         tokenRigidbody.useGravity = false;
         tokenRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
-        //make the token inactive but make the instance of the token active
+
         token.SetActive(false);
 
     }
@@ -145,7 +148,6 @@ public class Slot : MonoBehaviour
             }
         }
 
-        //set the materials
         try
         {
             ColorUtility.TryParseHtmlString(PlayerPrefs.GetString("Player1Color"), out Color player1Color);
@@ -164,7 +166,7 @@ public class Slot : MonoBehaviour
     }
     private void playerTurn()
     {
-        // Switch the material for the next player's turn
+
         if (currentMaterial == player1Material)
         {
             currentMaterial = player2Material;
@@ -175,9 +177,9 @@ public class Slot : MonoBehaviour
             currentMaterial = player1Material;
             currentPlayer = 1;
         }
-        // Update the token's material
+
         token.GetComponent<MeshRenderer>().material = currentMaterial;
-        // Update the cursor's material
+
         GameObject cursor = GameObject.Find("pointer(Clone)");
         if (cursor != null)
         {
@@ -189,8 +191,8 @@ public class Slot : MonoBehaviour
 
     public void Update()
     {
-        if (Time.timeScale == 0f) return;
-        // Update the cursor position based on user input
+        if (Time.timeScale == 0f || stopInput) return;
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             cursorPosition--;
@@ -207,12 +209,12 @@ public class Slot : MonoBehaviour
                 cursorPosition = 0;
             }
         }
-        //move the cursor instance
+
         GameObject cursor = GameObject.Find("pointer(Clone)");
         if (cursor != null)
         {
             cursor.transform.position = new Vector3(transform.position.x + 0.25f, transform.position.y + 1 + (1 * columnHeight), transform.position.z + (cursorPosition));
-            //do not let the token get below the slot
+
             if (cursor.transform.position.y < transform.position.y + 0.50f)
             {
                 cursor.transform.position = new Vector3(transform.position.x + 0.25f, transform.position.y + 1 + (1 * columnHeight), transform.position.z + (cursorPosition));
@@ -240,7 +242,7 @@ public class Slot : MonoBehaviour
             {
                 return;
             }
-            //drop a token in the selected column
+
             GameObject spawnedToken = Instantiate(token, new Vector3(transform.position.x + 0.175f, transform.position.y + (1 * columnHeight), transform.position.z + (cursorPosition)), Quaternion.Euler(0, 90, 0));
             spawnedToken.SetActive(true);
             try
@@ -259,13 +261,13 @@ public class Slot : MonoBehaviour
     private void markColumnFull(int colNum)
     {
         fullColumns[colNum] = 1;
-        //if all columns are full, run the showWinscreen from the global volume
+
     }
     private bool isColumnFull()
     {
         if (fullColumns[cursorPosition] == 1)
         {
-            //if the column is full, return true
+
             return true;
         }
         return false;
@@ -274,7 +276,7 @@ public class Slot : MonoBehaviour
     {
         if (Array.TrueForAll(fullColumns, x => x == 1))
         {
-            //if the board is full, return true
+
             return true;
         }
         return false;
@@ -303,11 +305,11 @@ public class Slot : MonoBehaviour
             }
         }
         Debug.Log("landposerror");
-        return (Vector3.zero, -1, -1); // fallback
+        return (Vector3.zero, -1, -1);
     }
     private IEnumerator dropToken(GameObject tokenToDrop, Vector3 landPos, int posX, int posY)
     {
-        float duration = 0.3f; // Time to reach the destination
+        float duration = 0.3f;
         float elapsed = 0f;
 
         Vector3 startPos = tokenToDrop.transform.position;
@@ -317,8 +319,6 @@ public class Slot : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = (float)Math.Pow((elapsed / duration), 2);
-            // accelerate the drop
-
 
             tokenToDrop.transform.position = Vector3.Lerp(startPos, endPos, t);
             yield return null;
@@ -330,15 +330,19 @@ public class Slot : MonoBehaviour
         playerTurn();
         isBusy = false;
     }
+
     private void checkWin(int posX, int posY)
     {
+        isBusy = true;
         Vector2Int[] directions = new Vector2Int[]
-     {
+        {
         new Vector2Int(1, 0),   // horizontal
         new Vector2Int(0, 1),   // vertical
-        new Vector2Int(1, 1),   // diagonal /
-        new Vector2Int(1, -1),  // diagonal \
-     };
+        new Vector2Int(1, 1),   // bottom-left to top-right
+        new Vector2Int(1, -1),  // top left to bottom-right
+        };
+
+        List<GameObject> winningTokens = new List<GameObject>();
 
         foreach (var dir in directions)
         {
@@ -373,8 +377,8 @@ public class Slot : MonoBehaviour
                 {
                     winningTokens.Add(tokenGrid[coord.x, coord.y]);
                 }
-
-                StartCoroutine(HighlightTokens());
+                stopInput = true;
+                StartCoroutine(HighlightTokens(winningTokens));
                 return;
             }
         }
@@ -384,21 +388,20 @@ public class Slot : MonoBehaviour
             globalVolume.GetComponent<UIHandler>().showWinScreen("draw");
         }
     }
-    private IEnumerator HighlightTokens()
+    private IEnumerator HighlightTokens(List<GameObject> winningTokens)
     {
         yield return new WaitForSeconds(0.2f);
         foreach (var token in winningTokens)
         {
-            //create a copy of the tokens material
             Material highlightMaterial = new Material(token.GetComponent<Renderer>().material);
             highlightMaterial.EnableKeyword("_EMISSION");
             highlightMaterial.SetColor("_EmissionColor", Color.white * 2f);
             token.GetComponent<Renderer>().material = highlightMaterial;
-            //wait for 0.5 seconds
+
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + currentPlayer);
     }

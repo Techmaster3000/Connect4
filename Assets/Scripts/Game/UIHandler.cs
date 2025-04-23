@@ -11,6 +11,7 @@ public class UIHandler : MonoBehaviour
     private GameObject winScreen;
     private DepthOfField dof;
     public Volume globalVolume;
+    private Coroutine blurCoroutine;
 
     void Start()
     {
@@ -44,32 +45,44 @@ public class UIHandler : MonoBehaviour
 
 
     }
-    public IEnumerator animBlur()
+    public void StartBlur()
+    {
+        if (blurCoroutine != null)
+        {
+            StopCoroutine(blurCoroutine);
+        }
+        blurCoroutine = StartCoroutine(BlurTo(0.1f)); // blur in
+    }
+
+    public void StopBlur()
+    {
+        if (blurCoroutine != null)
+        {
+            StopCoroutine(blurCoroutine);
+        }
+        blurCoroutine = StartCoroutine(BlurTo(10f)); // blur out
+    }
+
+    private IEnumerator BlurTo(float targetValue)
     {
         if (dof != null)
         {
             float start = dof.focusDistance.value;
             float elapsed = 0f;
             float duration = 0.5f;
-            if (dof.focusDistance.value == 10f)
+
+            while (elapsed < duration)
             {
-                while (elapsed < duration)
-                {
-                    elapsed += Time.unscaledDeltaTime;
-                    float t = Mathf.SmoothStep(0, 1, elapsed / duration);
-                    dof.focusDistance.value = Mathf.Lerp(start, 0.1f, t); // Set the focus distance to 0.5 meters
-                    yield return null;
-                }
-                 // Set the focus distance to 0.5 meters
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.SmoothStep(0, 1, elapsed / duration);
+                dof.focusDistance.value = Mathf.Lerp(start, targetValue, t);
+                yield return null;
             }
-            else
-            {
-                dof.focusDistance.value = 10f; // Set the focus distance to 0.5 meters
-            }
+
+            dof.focusDistance.value = targetValue; // Snap to final value
         }
 
-
-
+        blurCoroutine = null;
     }
     public IEnumerator fadeUI()
     {
@@ -91,7 +104,7 @@ public class UIHandler : MonoBehaviour
     {
         if (winScreen != null)
         {
-            StartCoroutine(animBlur());
+            StartBlur();
             StartCoroutine(fadeUI());
             winScreen.SetActive(true);
             //change the text
