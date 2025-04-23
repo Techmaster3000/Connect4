@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\ColumnScript.cs",
               "ToolTip": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\ColumnScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\ColumnScript.cs",
-              "ViewState": "AgIAANgAAAAAAAAAAAAAALsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAAAIQBAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T14:52:30.271Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\PauseMenu.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAAAEYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T14:27:08.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T14:27:08.346Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\UIHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T13:49:27.084Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T13:49:27.084Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\WinScreen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T12:33:58.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T12:33:58.622Z"
             },
             {
               "$type": "Document",
@@ -94,8 +91,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Menu\\ColorSelect.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAADIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T12:32:24.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T12:32:24.278Z"
             }
           ]
         }

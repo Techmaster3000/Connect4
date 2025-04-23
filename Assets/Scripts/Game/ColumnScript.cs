@@ -3,11 +3,12 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
 using System.Collections.Generic;
-using System;   
+using System;
 
 public class Slot : MonoBehaviour
 {
     public int columnHeight;
+    public uint gameMode;
     public int rowLength;
     public Mesh slotMesh;
     public Material boardMaterial;
@@ -22,15 +23,17 @@ public class Slot : MonoBehaviour
     private GameObject token;
     private int currentPlayer;
     private int[,] grid;
+    private GameObject[,] tokenGrid;
     private int[] fullColumns;
     private bool isBusy = false;
-    public uint gameMode;
+
     private GameObject globalVolume;
+    private List<GameObject> winningTokens = new List<GameObject>();
 
 
     void Start()
     {
-        
+
         initGame();
         GameObject slotPrefab = new GameObject("Slot");
         MeshFilter filter = slotPrefab.AddComponent<MeshFilter>();
@@ -106,6 +109,7 @@ public class Slot : MonoBehaviour
     private void initGame()
     {
         isBusy = true;
+        tokenGrid = new GameObject[rowLength, columnHeight];
 
         currentPlayer = 1;
         gameMode = (uint)PlayerPrefs.GetInt("GameMode");
@@ -285,6 +289,7 @@ public class Slot : MonoBehaviour
 
         for (int i = 0; i < columnHeight; i++)
         {
+
             if (grid[cursorPosition, i] == 0)
             {
                 grid[cursorPosition, i] = currentPlayer;
@@ -313,58 +318,88 @@ public class Slot : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = (float)Math.Pow((elapsed / duration), 2);
             // accelerate the drop
-          
+
 
             tokenToDrop.transform.position = Vector3.Lerp(startPos, endPos, t);
             yield return null;
         }
 
         tokenToDrop.transform.position = landPos;
-
+        tokenGrid[posX, posY] = tokenToDrop;
         checkWin(posX, posY);
         playerTurn();
         isBusy = false;
     }
-    private void checkWin(int posX, int posY) {
-        Vector2Int[] directions = new Vector2Int[]
+    private void checkWin(int posX, int posY)
     {
-        new Vector2Int(1, 0),   
-        new Vector2Int(0, 1),
-        new Vector2Int(1, 1),
-        new Vector2Int(1, -1),  
-    };
+        Vector2Int[] directions = new Vector2Int[]
+     {
+        new Vector2Int(1, 0),   // horizontal
+        new Vector2Int(0, 1),   // vertical
+        new Vector2Int(1, 1),   // diagonal /
+        new Vector2Int(1, -1),  // diagonal \
+     };
 
         foreach (var dir in directions)
         {
-            int count = 1;
-            count += countDirection(dir.x, dir.y, posX, posY);
-            count += countDirection(-dir.x, -dir.y, posX, posY);
+            List<Vector2Int> winningCoords = new List<Vector2Int>();
+            winningCoords.Add(new Vector2Int(posX, posY));
 
-            if (count >= gameMode)
+            // Forward direction
+            int x = posX + dir.x;
+            int y = posY + dir.y;
+            while (x >= 0 && x < rowLength && y >= 0 && y < columnHeight && grid[x, y] == currentPlayer)
             {
-                //run the showWinscreen from the global volume
-                globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + currentPlayer);
+                winningCoords.Add(new Vector2Int(x, y));
+                x += dir.x;
+                y += dir.y;
+            }
+
+            // Backward direction
+            x = posX - dir.x;
+            y = posY - dir.y;
+            while (x >= 0 && x < rowLength && y >= 0 && y < columnHeight && grid[x, y] == currentPlayer)
+            {
+                winningCoords.Add(new Vector2Int(x, y));
+                x -= dir.x;
+                y -= dir.y;
+            }
+
+            if (winningCoords.Count >= gameMode)
+            {
+                // Save token GameObjects
+                winningTokens.Clear();
+                foreach (var coord in winningCoords)
+                {
+                    winningTokens.Add(tokenGrid[coord.x, coord.y]);
+                }
+
+                StartCoroutine(HighlightTokens());
                 return;
             }
-            else if (isBoardFull())
-            {
-                globalVolume.GetComponent<UIHandler>().showWinScreen("draw");
-                return;
-            }
+        }
+
+        if (isBoardFull())
+        {
+            globalVolume.GetComponent<UIHandler>().showWinScreen("draw");
         }
     }
-    private int countDirection(int dx, int dy, int posX, int posY) {
-        int count = 0;
-        int x = posX + dx;
-        int y = posY + dy;
-
-        while (x >= 0 && x < rowLength && y >= 0 && y < columnHeight && grid[x, y] == currentPlayer)
+    private IEnumerator HighlightTokens()
+    {
+        yield return new WaitForSeconds(0.2f);
+        foreach (var token in winningTokens)
         {
-            count++;
-            x += dx;
-            y += dy;
+            //create a copy of the tokens material
+            Material highlightMaterial = new Material(token.GetComponent<Renderer>().material);
+            highlightMaterial.EnableKeyword("_EMISSION");
+            highlightMaterial.SetColor("_EmissionColor", Color.white * 2f);
+            token.GetComponent<Renderer>().material = highlightMaterial;
+            //wait for 0.5 seconds
+            yield return new WaitForSeconds(0.5f);
         }
 
-        return count;
+        yield return new WaitForSeconds(2f);
+
+        globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + currentPlayer);
     }
 }
