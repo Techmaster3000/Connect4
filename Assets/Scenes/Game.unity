@@ -1278,16 +1278,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columnHeight: 6
+  gameMode: 4
   rowLength: 7
-  slotMesh: {fileID: 4300000, guid: b8d3883904be8d44fb2ea80866649119, type: 2}
-  boardMaterial: {fileID: 2100000, guid: 93859667dad40e74d837fe0b2c1b2d0a, type: 2}
-  pillarMesh: {fileID: 4300000, guid: 3bb9c3bdb81737045bb982acfdce8eb2, type: 2}
-  pillarTopMesh: {fileID: 4300000, guid: 1bda26ccc7a085545af965c6c4406790, type: 2}
-  tokenMesh: {fileID: 4300000, guid: dbd29c13d4cdfdd4d87d095609cfca01, type: 2}
   player1Material: {fileID: 2100000, guid: b397d146de2aeae4d8a14210bb892e7a, type: 2}
   player2Material: {fileID: 2100000, guid: 1af19a1d64e3d7243b8b3cbd2033f54c, type: 2}
+  slotPrefab: {fileID: 3438035357867059610, guid: 19ff1f02707187744b1d525013a8e51e, type: 3}
+  boardMaterial: {fileID: 2100000, guid: 93859667dad40e74d837fe0b2c1b2d0a, type: 2}
+  pillarPrefab: {fileID: 3924009472267312425, guid: a9640d3160b707849a8069186ea3c0e0, type: 3}
+  pillarTopPrefab: {fileID: 3924009472267312425, guid: 07f34aeb9aca3ce4a94b54ad41fbeb55, type: 3}
+  tokenPrefab: {fileID: 2838856217302463295, guid: cf35c7477dfc9d44eb99f8d9938e798b, type: 3}
   cursorPrefab: {fileID: 919132149155446097, guid: 5da65c06f8502c44e8ea75260a318655, type: 3}
-  gameMode: 4
+  stopInput: 0
 --- !u!114 &1346688587
 MonoBehaviour:
   m_ObjectHideFlags: 0

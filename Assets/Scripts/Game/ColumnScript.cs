@@ -14,17 +14,18 @@ public class GameHandler : MonoBehaviour
     public Material player1Material;
     public Material player2Material;
 
-    //meshes
-    public Mesh slotMesh;
+    //Prefabs
+    public GameObject slotPrefab;
     public Material boardMaterial;
-    public Mesh pillarMesh;
-    public Mesh pillarTopMesh;
-    public Mesh tokenMesh;
+    public GameObject pillarPrefab;
+    public GameObject pillarTopPrefab;
+    public GameObject tokenPrefab;
+    public GameObject cursorPrefab;
 
     private Material currentMaterial;
     private int cursorPosition = 0;
-    public GameObject cursorPrefab;
-    private GameObject token;
+    
+//    private GameObject token;
     private int currentPlayer;
     private int[,] grid;
     private GameObject[,] tokenGrid;
@@ -49,11 +50,7 @@ public class GameHandler : MonoBehaviour
     }
     private void createSlots()
     {
-        GameObject slotPrefab = new GameObject("Slot");
-        MeshFilter filter = slotPrefab.AddComponent<MeshFilter>();
-        filter.mesh = slotMesh;
-        MeshRenderer render = slotPrefab.AddComponent<MeshRenderer>();
-        render.material = boardMaterial;
+       
         slotPrefab.transform.localScale = new Vector3(50, 50, 50);
         slotPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + 0.50f, transform.position.z);
 
@@ -61,8 +58,13 @@ public class GameHandler : MonoBehaviour
         {
             for (int i = 0; i < columnHeight; i++)
             {
-                Instantiate(slotPrefab, new Vector3(transform.position.x, transform.position.y + (1 * i), transform.position.z + (1 * l)), Quaternion.identity);
-                Instantiate(slotPrefab, new Vector3(transform.position.x + 0.25f, transform.position.y + (1 * i), transform.position.z + (1 * l)), Quaternion.identity);
+                GameObject slot1 = Instantiate(slotPrefab, new Vector3(transform.position.x, transform.position.y + (1 * i), transform.position.z + (1 * l)), Quaternion.identity);
+                GameObject slot2 = Instantiate(slotPrefab, new Vector3(transform.position.x + 0.25f, transform.position.y + (1 * i), transform.position.z + (1 * l)), Quaternion.identity);
+
+                slot1.transform.localScale = new Vector3(50, 50, 50);
+                slot2.transform.localScale = new Vector3(50, 50, 50);
+                slot1.SetActive(true);
+                slot2.SetActive(true);
             }
         }
 
@@ -77,53 +79,38 @@ public class GameHandler : MonoBehaviour
     }
     private void initTokens()
     {
-        token = new GameObject("Token");
-        MeshFilter tokenFilter = token.AddComponent<MeshFilter>();
-        tokenFilter.mesh = tokenMesh;
-        MeshRenderer tokenRender = token.AddComponent<MeshRenderer>();
+
+        MeshRenderer tokenRender = tokenPrefab.GetComponent<MeshRenderer>();
         tokenRender.material = currentMaterial;
-        token.transform.localScale = new Vector3(100, 100, 50);
+        tokenPrefab.transform.localScale = new Vector3(100, 100, 50);
 
-        Rigidbody tokenRigidbody = token.AddComponent<Rigidbody>();
-        tokenRigidbody.mass = 1f;
-        tokenRigidbody.isKinematic = false;
-        tokenRigidbody.useGravity = false;
-        tokenRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
-
-        token.SetActive(false);
+        tokenPrefab.SetActive(false);
 
     }
     private void createPillars()
     {
-
-        GameObject pillarPrefab = new GameObject("Pillar");
-        MeshFilter pillarFilter = pillarPrefab.AddComponent<MeshFilter>();
-        pillarFilter.mesh = pillarMesh;
-        MeshRenderer pillarRender = pillarPrefab.AddComponent<MeshRenderer>();
+        MeshRenderer pillarRender = pillarPrefab.GetComponent<MeshRenderer>();
         pillarRender.material = boardMaterial;
         pillarPrefab.transform.localScale = new Vector3(50, 50, 50);
         pillarPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + 0.50f, transform.position.z);
         pillarPrefab.transform.Rotate(0, 0, 90);
         for (int b = 0; b < columnHeight; b++)
         {
-
-
-            Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z - 1), Quaternion.Euler(90, 0, 0));
+           GameObject pillar = Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z - 1), Quaternion.Euler(90, 0, 0));
+            pillar.SetActive(true);
         }
         createPillarsTop();
         for (int b = 0; b < columnHeight; b++)
         {
-            Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z + rowLength), Quaternion.Euler(90, 0, 0));
+            GameObject pillar = Instantiate(pillarPrefab, new Vector3(transform.position.x, transform.position.y + (1 * b), transform.position.z + rowLength), Quaternion.Euler(90, 0, 0));
+            pillar.SetActive(true);
         }
         Destroy(pillarPrefab, 0.1f);
         
     }
     private void createPillarsTop()
     {
-        GameObject pillarTopPrefab = new GameObject("PillarTop");
-        MeshFilter pillarTopFilter = pillarTopPrefab.AddComponent<MeshFilter>();
-        pillarTopFilter.mesh = pillarTopMesh;
-        MeshRenderer pillarTopRender = pillarTopPrefab.AddComponent<MeshRenderer>();
+        MeshRenderer pillarTopRender = pillarTopPrefab.GetComponent<MeshRenderer>();
         pillarTopRender.material = boardMaterial;
         pillarTopPrefab.transform.localScale = new Vector3(50, 50, 50);
         pillarTopPrefab.transform.position = new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z);
@@ -202,7 +189,7 @@ public class GameHandler : MonoBehaviour
             currentPlayer = 1;
         }
 
-        token.GetComponent<MeshRenderer>().material = currentMaterial;
+        tokenPrefab.GetComponent<MeshRenderer>().material = currentMaterial;
 
         GameObject cursor = GameObject.Find("pointer(Clone)");
         if (cursor != null)
@@ -267,7 +254,7 @@ public class GameHandler : MonoBehaviour
                 return;
             }
 
-            GameObject spawnedToken = Instantiate(token, new Vector3(transform.position.x + 0.175f, transform.position.y + (1 * columnHeight), transform.position.z + (cursorPosition)), Quaternion.Euler(0, 90, 0));
+            GameObject spawnedToken = Instantiate(tokenPrefab, new Vector3(transform.position.x + 0.175f, transform.position.y + (1 * columnHeight), transform.position.z + (cursorPosition)), Quaternion.Euler(0, 90, 0));
             spawnedToken.SetActive(true);
             try
             {
