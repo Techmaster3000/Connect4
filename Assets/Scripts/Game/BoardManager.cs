@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class BoardManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BoardManager : MonoBehaviour
     public int rowLength;
     public int[] fullColumns;
     public int[,] grid;
+    public GameObject[,] tokenGrid;
 
     public void markColumnFull(int colNum)
     {
@@ -58,4 +60,5 @@ public class BoardManager : MonoBehaviour
         UnityEngine.Debug.Log("landposerror");
         return (Vector3.zero, -1, -1);
     }
+
 }

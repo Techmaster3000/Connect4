@@ -18,7 +18,7 @@ public class GameStateManager : MonoBehaviour
         currentMaterial = Player1Material;
     }
 
-    public void SwitchTurn()
+    public void SwitchTurn(GameObject tokenPrefab, CursorHandler cursorHandler)
     {
         if (currentMaterial == Player1Material)
         {
@@ -29,6 +29,12 @@ public class GameStateManager : MonoBehaviour
         {
             currentMaterial = Player1Material;
             CurrentPlayer = 1;
+        }
+        //change the material of the token prefab and cursor to the current player's material
+        tokenPrefab.GetComponent<MeshRenderer>().material = currentMaterial;
+        if (cursorHandler.cursor != null)
+        {
+            cursorHandler.cursor.GetComponent<MeshRenderer>().material = currentMaterial;
         }
     }
 

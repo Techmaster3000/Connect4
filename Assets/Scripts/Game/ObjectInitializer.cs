@@ -10,7 +10,7 @@ public class ObjectInitializer : MonoBehaviour
     public Material boardMaterial;
 
 
-    private void initObject(GameObject Prefab, Material materialToSet, Vector3 localScale)
+    private static void initObject(GameObject Prefab, Material materialToSet, Vector3 localScale)
     {
         MeshRenderer Renderer = Prefab.GetComponent<MeshRenderer>();
         Renderer.material = materialToSet;
@@ -18,11 +18,11 @@ public class ObjectInitializer : MonoBehaviour
 
     }
 
-    public GameObject initCursor(Material currentMaterial, int rowLength, int columnHeight)
+    public void initCursor(Material currentMaterial, int rowLength, int columnHeight, CursorHandler cursorHandler)
     {
         initObject(cursorPrefab, currentMaterial, new Vector3(55f, 55f, 55f));
-        return Instantiate(cursorPrefab, new Vector3(transform.position.x + 0.25f, transform.position.y + 1 + (1 * columnHeight), transform.position.z + (rowLength / 2)), Quaternion.Euler(270, 0, 0));
-    
+        cursorHandler.cursor = Instantiate(cursorPrefab, new Vector3(transform.position.x + 0.25f, transform.position.y + 1 + (1 * columnHeight), transform.position.z + (rowLength / 2)), Quaternion.Euler(270, 0, 0));
+
     }
 
     public void createSlots(int rowLength, int columnHeight)
@@ -79,17 +79,5 @@ public class ObjectInitializer : MonoBehaviour
 
         Instantiate(pillarTopPrefab, new Vector3(transform.position.x, transform.position.y + (1 * (columnHeight - 1)), transform.position.z + rowLength), Quaternion.Euler(270, 0, 0));
 
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

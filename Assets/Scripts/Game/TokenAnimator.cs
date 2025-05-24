@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TokenAnimator : MonoBehaviour
 {
-    public IEnumerator DropToPosition(GameObject token, Vector3 endPos, float duration = 0.3f)
+    public static IEnumerator DropToPosition(GameObject token, Vector3 endPos, float duration = 0.3f)
     {
         float elapsed = 0f;
         Vector3 startPos = token.transform.position;
@@ -22,7 +22,7 @@ public class TokenAnimator : MonoBehaviour
         token.transform.position = endPos;
     }
 
-    public IEnumerator HighlightTokens(List<GameObject> winningTokens, GameObject globalVolume, GameStateManager gameStateMan)
+    public static IEnumerator HighlightTokens(List<GameObject> winningTokens, GameObject globalVolume, GameStateManager gameStateMan)
     {
         yield return new WaitForSeconds(0.2f);
         foreach (var token in winningTokens)
