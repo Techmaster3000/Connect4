@@ -11,10 +11,10 @@ public class GameHandler : MonoBehaviour
     //Other Scripts
     private ObjectInitializer ObjInitializer;
     private BoardManager boardMan;
-    private WinChecker winChecker;
     private TokenAnimator tokenAnimator;
     private InputHandler inputHandler;
     private GameStateManager gameStateMan;
+    private CursorHandler cursorHandler;
 
     //variables entered through the main menu
     public int columnHeight;
@@ -26,8 +26,7 @@ public class GameHandler : MonoBehaviour
     public GameObject tokenPrefab;
     private MeshRenderer tokenRender;
 
-    private int cursorPosition = 0;
-    private GameObject cursor;
+    public GameObject cursor;
 
     public Material boardMaterial;
     private GameObject[,] tokenGrid;
@@ -57,13 +56,20 @@ public class GameHandler : MonoBehaviour
         tokenPrefab = ObjInitializer.initTokens(gameStateMan.GetCurrentMaterial());
         tokenRender = tokenPrefab.GetComponent<MeshRenderer>();
 
-        winChecker = GetComponent<WinChecker>();
         tokenAnimator = GetComponent<TokenAnimator>();
         
         inputHandler = GetComponent<InputHandler>();
-        inputHandler.Initialize(this);
+        
 
-        UpdateCursorPosition();
+        cursorHandler = GetComponent<CursorHandler>();
+
+        inputHandler.Initialize(this, cursorHandler);
+        
+        cursorHandler.cursor = cursor;
+        cursorHandler.Initialize(rowLength, columnHeight);
+
+
+        cursorHandler.UpdateCursorPosition();
     }
     
     
@@ -134,37 +140,18 @@ public class GameHandler : MonoBehaviour
         inputHandler.HandleInput();
     }
 
-    public void DecrementCursor()
-    {
-        cursorPosition = (cursorPosition - 1 + rowLength) % rowLength;
-    }
-
-    public void IncrementCursor()
-    {
-        cursorPosition = (cursorPosition + 1) % rowLength;
-    }
-
-    public void UpdateCursorPosition()
-    {
-        if (cursor != null)
-        {
-            float yPos = transform.position.y + 1 + (1 * columnHeight);
-            float zPos = transform.position.z + cursorPosition;
-            cursor.transform.position = new Vector3(transform.position.x + 0.25f, yPos, zPos);
-        }
-    }
     public void tryDropToken()
     {
         if (isBusy) return;
 
         isBusy = true;
-        Vector3 spawnPos = new Vector3(transform.position.x + 0.175f, transform.position.y + (1 * columnHeight), transform.position.z + cursorPosition);
+        Vector3 spawnPos = new Vector3(transform.position.x + 0.175f, transform.position.y + (1 * columnHeight), transform.position.z + cursorHandler.cursorPosition);
         Vector3 landPos;
         int posX, posY;
 
         try
         {
-            (landPos, posX, posY) = boardMan.getlandPos(gameStateMan.GetCurrentPlayer(), cursorPosition);
+            (landPos, posX, posY) = boardMan.getlandPos(gameStateMan.GetCurrentPlayer(), cursorHandler.cursorPosition);
         }
         catch (Exception)
         {
@@ -213,7 +200,7 @@ public class GameHandler : MonoBehaviour
         if (WinChecker.TryGetWinningTokens(boardMan.grid, tokenGrid, gameStateMan.GetCurrentPlayer(), (int)gameMode, posX, posY, out var winningTokens))
         {
             stopInput = true;
-            StartCoroutine(HighlightTokens(winningTokens));
+            StartCoroutine(tokenAnimator.HighlightTokens(winningTokens, globalVolume, gameStateMan));
             return;
         }
 
@@ -223,21 +210,4 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    private IEnumerator HighlightTokens(List<GameObject> winningTokens)
-    {
-        yield return new WaitForSeconds(0.2f);
-        foreach (var token in winningTokens)
-        {
-            Material highlightMaterial = new Material(token.GetComponent<Renderer>().material);
-            highlightMaterial.EnableKeyword("_EMISSION");
-            highlightMaterial.SetColor("_EmissionColor", Color.white * 2f);
-            token.GetComponent<Renderer>().material = highlightMaterial;
-
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        yield return new WaitForSeconds(1f);
-
-        globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + gameStateMan.GetCurrentPlayer());
-    }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TokenAnimator : MonoBehaviour
@@ -19,5 +20,23 @@ public class TokenAnimator : MonoBehaviour
         }
 
         token.transform.position = endPos;
+    }
+
+    public IEnumerator HighlightTokens(List<GameObject> winningTokens, GameObject globalVolume, GameStateManager gameStateMan)
+    {
+        yield return new WaitForSeconds(0.2f);
+        foreach (var token in winningTokens)
+        {
+            Material highlightMaterial = new Material(token.GetComponent<Renderer>().material);
+            highlightMaterial.EnableKeyword("_EMISSION");
+            highlightMaterial.SetColor("_EmissionColor", Color.white * 2f);
+            token.GetComponent<Renderer>().material = highlightMaterial;
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + gameStateMan.GetCurrentPlayer());
     }
 }

@@ -3,10 +3,12 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     private GameHandler gameHandler;
+    private CursorHandler cursorHandler;
 
-    public void Initialize(GameHandler handler)
+    public void Initialize(GameHandler gameHandler, CursorHandler cursorHandler)
     {
-        gameHandler = handler;
+        this.cursorHandler = cursorHandler;
+        this.gameHandler = gameHandler;
     }
 
     public void HandleInput()
@@ -23,18 +25,18 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            gameHandler.DecrementCursor();
+            cursorHandler.DecrementCursor();
             moved = true;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            gameHandler.IncrementCursor();
+            cursorHandler.IncrementCursor();
             moved = true;
         }
 
         if (moved)
         {
-            gameHandler.UpdateCursorPosition();
+            cursorHandler.UpdateCursorPosition();
         }
     }
 
