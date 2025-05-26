@@ -9,73 +9,35 @@ using System.Collections;
 /// </summary>
 public class PauseMenu : MonoBehaviour
 {
-    /// <summary>
-    /// The global volume used for rendering effects like blur.
-    /// </summary>
     public Volume GlobalVolume;
+    [SerializeField]
+    public GameObject pauseScreen;
+    [SerializeField]
+    public GameObject settingsMenu;
+    [SerializeField]
+    public GameObject pauseMenu;
 
-    /// <summary>
-    /// Reference to the pause screen GameObject.
-    /// </summary>
-    private GameObject pauseScreen;
-
-    /// <summary>
-    /// Initializes the pause menu by finding the pause screen in the scene
-    /// and setting its initial state to inactive.
-    /// </summary>
     void Start()
     {
-        pauseScreen = GameObject.Find("PauseScreen");
-        if (pauseScreen != null)
-        {
-            // Set the opacity to 0
-            pauseScreen.GetComponent<CanvasGroup>().alpha = 0;
-            pauseScreen.SetActive(false); // Deactivate the PauseScreen at the start
-        }
-        else
-        {
-            Debug.LogError("PauseScreen not found in the scene.");
-        }
+        pauseScreen.GetComponent<CanvasGroup>().alpha = 0;
+        pauseScreen.SetActive(false);
     }
 
-    /// <summary>
-    /// Monitors input for toggling the pause menu and checks if input is disabled.
-    /// </summary>
     void Update()
     {
-        // Check if stopInput is true
-        GameObject gameHandler = GameObject.Find("GameHandler");
-        if (gameHandler != null)
-        {
-            GameHandler gameHandlerScript = gameHandler.GetComponent<GameHandler>();
-            if (gameHandlerScript != null && gameHandlerScript.stopInput)
-            {
-                return; // Skip the rest of the Update method
-            }
-        }
-
-        // Toggle the pause menu when Escape or Backspace is pressed
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
-        {
-            TogglePauseMenu();
-        }
     }
 
-    /// <summary>
-    /// Toggles the pause menu on or off, pausing or resuming the game accordingly.
-    /// </summary>
     public void TogglePauseMenu()
     {
-        // Check if the game is currently paused
-        UIHandler uiHandler = FindFirstObjectByType<UIHandler>();
+        UIHandler uiHandler = GlobalVolume.GetComponent<UIHandler>();
+
         if (Time.timeScale == 0f)
         {
-            // Resume the game
             Time.timeScale = 1f;
 
             if (uiHandler != null)
             {
-                uiHandler.StopBlur(); // Unblur when resuming the game
+                uiHandler.StopBlur();
             }
             else
             {
@@ -83,11 +45,14 @@ public class PauseMenu : MonoBehaviour
             }
 
             pauseScreen.GetComponent<CanvasGroup>().alpha = 0;
-            pauseScreen.SetActive(false); // Deactivate the PauseScreen
+            pauseScreen.SetActive(false);
+            if (settingsMenu != null)
+            {
+                settingsMenu.SetActive(false);
+            }
         }
         else
         {
-            // Pause the game
             if (uiHandler != null)
             {
                 uiHandler.StartBlur();
@@ -97,15 +62,13 @@ public class PauseMenu : MonoBehaviour
                 Debug.LogError("UIHandler not found in the scene.");
             }
 
-            pauseScreen.SetActive(true); // Activate the PauseScreen
+            pauseScreen.SetActive(true);
+            settingsMenu.SetActive(false);
             StartCoroutine(fadeUI());
             Time.timeScale = 0f;
         }
     }
 
-    /// <summary>
-    /// Fades in the pause screen UI over a short duration.
-    /// </summary>
     public IEnumerator fadeUI()
     {
         if (pauseScreen != null)

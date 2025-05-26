@@ -94,8 +94,8 @@ public class GameHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale == 0f || stopInput) return;
-        inputHandler.HandleInput();
+        
+        inputHandler.HandleInput(stopInput);
     }
 
     public void tryDropToken()

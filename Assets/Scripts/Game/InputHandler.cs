@@ -4,6 +4,7 @@ public class InputHandler : MonoBehaviour
 {
     private GameHandler gameHandler;
     private CursorHandler cursorHandler;
+    [SerializeField] private PauseMenu pauseMenu;
 
     public void Initialize(GameHandler gameHandler, CursorHandler cursorHandler)
     {
@@ -11,12 +12,15 @@ public class InputHandler : MonoBehaviour
         this.gameHandler = gameHandler;
     }
 
-    public void HandleInput()
+    public void HandleInput(bool stopInput)
     {
         if (gameHandler.isBusy) return;
+        HandlePauseInput();
+        if (Time.timeScale == 0f || stopInput) return;
 
         HandleArrowInput();
         HandleSubmitInput();
+        
     }
 
     private void HandleArrowInput()
@@ -37,6 +41,16 @@ public class InputHandler : MonoBehaviour
         if (moved)
         {
             cursorHandler.UpdateCursorPosition();
+        }
+    }
+    private void HandlePauseInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+        {
+            if (pauseMenu != null)
+            {
+                pauseMenu.TogglePauseMenu();
+            }
         }
     }
 
