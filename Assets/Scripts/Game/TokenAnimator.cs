@@ -22,7 +22,7 @@ public class TokenAnimator : MonoBehaviour
         token.transform.position = endPos;
     }
 
-    public static IEnumerator HighlightTokens(List<GameObject> winningTokens, GameObject globalVolume, GameStateManager gameStateMan)
+    public static IEnumerator HighlightTokens(List<GameObject> winningTokens, GameObject globalVolume, GameStateManager gameStateMan, int winningPlayer)
     {
         yield return new WaitForSeconds(0.2f);
         foreach (var token in winningTokens)
@@ -37,6 +37,6 @@ public class TokenAnimator : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + gameStateMan.GetCurrentPlayer());
+        globalVolume.GetComponent<UIHandler>().showWinScreen("Player " + winningPlayer);
     }
 }

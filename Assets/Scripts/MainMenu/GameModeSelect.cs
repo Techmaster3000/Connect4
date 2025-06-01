@@ -16,7 +16,8 @@ public class GameModeSelect : MonoBehaviour
             GameMode = int.Parse(gameModeText);
             if (GameMode < 3 || GameMode > 5)
             {
-                throw new System.Exception("GameMode is not between 3 and 5");
+                GameMode = 4;
+                text.text = GameMode.ToString();
             }
 
         }
@@ -27,15 +28,6 @@ public class GameModeSelect : MonoBehaviour
         }
         PlayerPrefs.SetInt("GameMode", GameMode);
         //set the text to the game mode
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
 
     }
     public void OnLeftArrowClick()

@@ -27,13 +27,14 @@ public class GameHandler : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = PlayerPrefs.GetInt("FpsCap", 60);
         // Cache GetComponent calls
         boardMan = GetComponent<BoardManager>();
         gameStateMan = GetComponent<GameStateManager>();
         ObjInitializer = GetComponent<ObjectInitializer>();
         cursorHandler = GetComponent<CursorHandler>();
         inputHandler = GetComponent<InputHandler>();
-
+        inputHandler.Initialize(cursorHandler);
         initGame();
 
         boardMan.columnHeight = columnHeight;
@@ -46,7 +47,6 @@ public class GameHandler : MonoBehaviour
         ObjInitializer.initCursor(gameStateMan.GetCurrentMaterial(), rowLength, columnHeight, cursorHandler);
         tokenPrefab = ObjInitializer.initTokens(gameStateMan.GetCurrentMaterial());
 
-        inputHandler.Initialize(this, cursorHandler);
         cursorHandler.Initialize(rowLength, columnHeight);
         cursorHandler.UpdateCursorPosition();
     }
@@ -66,12 +66,9 @@ public class GameHandler : MonoBehaviour
         };
         columnHeight = PlayerPrefs.GetInt("Height");
 
-        // Use Array.Clear for better performance
         boardMan.tokenGrid = new GameObject[rowLength, columnHeight];
         boardMan.fullColumns = new int[rowLength];
         boardMan.grid = new int[rowLength, columnHeight];
-
-        // No need to manually zero arrays, new arrays are zeroed by default
 
         try
         {
@@ -100,7 +97,7 @@ public class GameHandler : MonoBehaviour
 
     public void tryDropToken()
     {
-        if (isBusy) return;
+        if (isBusy) { Debug.Log("Game is busy, cannot drop token."); return; }
         isBusy = true;
 
         Vector3 spawnPos = new Vector3(
@@ -128,26 +125,34 @@ public class GameHandler : MonoBehaviour
         tokenToDrop.transform.position = landPos;
         boardMan.tokenGrid[posX, posY] = tokenToDrop;
 
-        checkWin(posX, posY);
+        bool gameOver = checkWin(posX, posY);
 
-        gameStateMan.SwitchTurn(tokenPrefab, cursorHandler);
+        if (!gameOver)
+        {
+            gameStateMan.SwitchTurn(tokenPrefab, cursorHandler);
+        }
         isBusy = false;
     }
 
-    private void checkWin(int posX, int posY)
+    private bool checkWin(int posX, int posY)
     {
         isBusy = true;
 
-        if (WinChecker.TryGetWinningTokens(boardMan.grid, boardMan.tokenGrid, gameStateMan.GetCurrentPlayer(), (int)gameMode, posX, posY, out var winningTokens))
+        int winningPlayer = gameStateMan.GetCurrentPlayer();
+
+        if (WinChecker.TryGetWinningTokens(boardMan.grid, boardMan.tokenGrid, winningPlayer, (int)gameMode, posX, posY, out var winningTokens))
         {
             stopInput = true;
-            StartCoroutine(TokenAnimator.HighlightTokens(winningTokens, globalVolume, gameStateMan));
-            return;
+            StartCoroutine(TokenAnimator.HighlightTokens(winningTokens, globalVolume, gameStateMan, winningPlayer));
+            return true; // Game over
         }
 
         if (boardMan.isBoardFull())
         {
             globalVolume.GetComponent<UIHandler>().showWinScreen("draw");
+            return true; // Game over
         }
+
+        return false; // Game continues
     }
 }

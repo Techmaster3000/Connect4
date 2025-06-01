@@ -35,6 +35,9 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
 
+            int fps = PlayerPrefs.GetInt("FpsCap", 60);
+            Application.targetFrameRate = fps;
+
             if (uiHandler != null)
             {
                 uiHandler.StopBlur();

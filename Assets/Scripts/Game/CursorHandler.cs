@@ -20,11 +20,13 @@ public class CursorHandler : MonoBehaviour
     public void DecrementCursor()
     {
         cursorPosition = (cursorPosition - 1 + rowLength) % rowLength;
+        UpdateCursorPosition();
     }
 
     public void IncrementCursor()
     {
         cursorPosition = (cursorPosition + 1) % rowLength;
+        UpdateCursorPosition();
     }
 
     public void UpdateCursorPosition()

@@ -5,42 +5,34 @@ public class InputHandler : MonoBehaviour
     private GameHandler gameHandler;
     private CursorHandler cursorHandler;
     [SerializeField] private PauseMenu pauseMenu;
+    public bool aiTurn = false;
 
-    public void Initialize(GameHandler gameHandler, CursorHandler cursorHandler)
+    public void Initialize(CursorHandler cursorHandler)
     {
         this.cursorHandler = cursorHandler;
-        this.gameHandler = gameHandler;
+        gameHandler = GetComponent<GameHandler>();
     }
 
     public void HandleInput(bool stopInput)
     {
-        if (gameHandler.isBusy) return;
+        if (gameHandler.isBusy || aiTurn) return;
         HandlePauseInput();
         if (Time.timeScale == 0f || stopInput) return;
 
         HandleArrowInput();
         HandleSubmitInput();
-        
     }
 
     private void HandleArrowInput()
     {
-        bool moved = false;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             cursorHandler.DecrementCursor();
-            moved = true;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             cursorHandler.IncrementCursor();
-            moved = true;
-        }
-
-        if (moved)
-        {
-            cursorHandler.UpdateCursorPosition();
         }
     }
     private void HandlePauseInput()
@@ -60,5 +52,10 @@ public class InputHandler : MonoBehaviour
         {
             gameHandler.tryDropToken();
         }
+    }
+    public void HandleAiSubmit()
+    {
+        Debug.Log("AI is making a move.");
+        gameHandler.tryDropToken();
     }
 }
