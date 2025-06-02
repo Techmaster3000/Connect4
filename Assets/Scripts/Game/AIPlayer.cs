@@ -43,6 +43,7 @@ public class AIPlayer : MonoBehaviour
     {
         // Try each column
         int[,] gridCopy = (int[,])boardManager.grid.Clone();
+        GameObject[,] tokenGridCopy = (GameObject[,])boardManager.tokenGrid.Clone();
         for (int col = 0; col < boardManager.rowLength; col++)
         {
             if (boardManager.isColumnFull(col))
@@ -52,7 +53,7 @@ public class AIPlayer : MonoBehaviour
             int row = -1;
             for (int r = 0; r < boardManager.columnHeight; r++)
             {
-                if (boardManager.grid[col, r] == 0)
+                if (gridCopy[col, r] == 0)
                 {
                     row = r;
                     break;
@@ -61,20 +62,18 @@ public class AIPlayer : MonoBehaviour
             if (row == -1) continue; // Should not happen
 
             // Simulate placing the AI's token
-            boardManager.grid[col, row] = aiPlayerNumber;
+            gridCopy[col, row] = aiPlayerNumber;
 
             // Check for a win
             if (WinChecker.TryGetWinningTokens(
-                boardManager.grid,
-                boardManager.tokenGrid,
+                gridCopy,
+                tokenGridCopy,
                 aiPlayerNumber,
                 winLength,
                 col,
                 row,
                 out var _))
             {
-                // Undo simulation
-                boardManager.grid[col, row] = 0;
 
                 // Move cursor and submit
                 moveCursor(col);

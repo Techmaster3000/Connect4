@@ -3,39 +3,43 @@
   "WorkspaceRootPath": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\game\\gamestatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\gamestatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\game\\tokenanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\tokenanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\game\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\winchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\winchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\mainmenu\\gamemodeselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\gamemodeselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\tokenanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\tokenanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\cursorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\cursorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\game\\uihandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\uihandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\uihandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\game\\winchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\winchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\game\\inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\game\\inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|c:\\users\\jagro\\documents\\unity projects\\connect 4\\assets\\scripts\\mainmenu\\colorselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\mainmenu\\colorselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\colorselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\mainmenu\\playermodeselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\playermodeselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\assets\\scripts\\mainmenu\\gamemodeselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D66DC62-2707-7CE9-A0F1-CA692BA42204}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\gamemodeselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "TokenAnimator.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\TokenAnimator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\TokenAnimator.cs",
@@ -70,12 +70,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\TokenAnimator.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAowCgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T17:54:29.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:54:29.622Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ColorSelect.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\MainMenu\\ColorSelect.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu\\ColorSelect.cs",
@@ -83,12 +82,11 @@
               "RelativeToolTip": "Assets\\Scripts\\MainMenu\\ColorSelect.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwBwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T17:51:29.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:51:29.458Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "UIHandler.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\UIHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UIHandler.cs",
@@ -96,38 +94,36 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\UIHandler.cs",
               "ViewState": "AgIAAGIAAAAAAAAAAAAswGYAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T17:45:50.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:45:50.473Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "WinChecker.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\WinChecker.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\WinChecker.cs",
               "ToolTip": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\WinChecker.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\WinChecker.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAQwCEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T17:34:00.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:34:00.72Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameStateManager.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\GameStateManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\GameStateManager.cs",
               "ToolTip": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\GameStateManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\GameStateManager.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAWwBwAAABgAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCgAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-31T16:19:31.292Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "InputHandler.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\InputHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\InputHandler.cs",
@@ -135,12 +131,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\InputHandler.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAqwBMAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T15:39:39.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T15:39:39.284Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "BoardManager.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\BoardManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\BoardManager.cs",
@@ -148,25 +143,24 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\BoardManager.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T12:20:42.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T12:20:42.13Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AIPlayer.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\AIPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\AIPlayer.cs",
               "ToolTip": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\AIPlayer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\AIPlayer.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-31T11:54:43.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "CursorHandler.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\CursorHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\CursorHandler.cs",
@@ -174,8 +168,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\CursorHandler.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T11:47:39.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T11:47:39.841Z"
             },
             {
               "$type": "Document",
@@ -185,27 +178,25 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\GameHandler.cs",
               "ToolTip": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\Game\\GameHandler.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\GameHandler.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAowI8AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAmwJEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T11:47:28.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T11:47:28.985Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "GameModeSelect.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\MainMenu\\GameModeSelect.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu\\GameModeSelect.cs",
               "ToolTip": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\MainMenu\\GameModeSelect.cs",
               "RelativeToolTip": "Assets\\Scripts\\MainMenu\\GameModeSelect.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswB8AAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwB8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T22:38:22.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T22:38:22.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "PlayerModeSelect.cs",
               "DocumentMoniker": "C:\\Users\\jagro\\Documents\\Unity Projects\\Connect 4\\Assets\\Scripts\\MainMenu\\PlayerModeSelect.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu\\PlayerModeSelect.cs",
@@ -213,8 +204,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MainMenu\\PlayerModeSelect.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAnwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T22:19:25.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T22:19:25.743Z"
             }
           ]
         }
