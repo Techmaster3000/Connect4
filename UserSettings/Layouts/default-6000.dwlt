@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 976
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 17
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 40
+  controlID: 18
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 41
+  controlID: 19
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -474,7 +474,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.unity.ugui/Runtime/UGUI/UI/Core
+    - Assets/Scripts/Game
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -484,16 +484,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Packages/com.unity.ugui/Runtime/UGUI/UI/Core
+  - Assets/Scripts/Game
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jagro\Documents\Unity Projects\Connect 4
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 600.6667}
-    m_SelectedIDs: b0b70000
-    m_LastClickedID: 47024
-    m_ExpandedIDs: 0000000010ae0000c0ae0000b2b70000b4b70000b6b7000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 8.666687}
+    m_SelectedIDs: 34af0000
+    m_LastClickedID: 44852
+    m_ExpandedIDs: 0000000010ae000094ae0000c8ae0000d6ae0000d8ae0000daae000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -548,8 +548,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 3eb20000
-    m_LastClickedInstanceID: 45630
+    m_SelectedInstanceIDs: c4a90000
+    m_LastClickedInstanceID: 43460
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300008aa90000ccd40000e6d70000c0a40000aea6000098ac000082b40000eaa9000012ad000000000000
     m_RenameOverlay:
@@ -576,7 +576,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 188.66669}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 197.66667
@@ -668,9 +668,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3eb20000
-      m_LastClickedID: 45630
-      m_ExpandedIDs: c2e8ffffdeeafffff4faffff58af0000a0af0000d4af0000deaf0000ecaf000054b00000a8b0000040b100003eb2000044b200007cb2000098b20000b8b200001cb30000
+      m_SelectedIDs: 8eaa0000
+      m_LastClickedID: 43662
+      m_ExpandedIDs: f4faffff52a9000056a9000062a9000004aa000050aa000056aa00008eaa0000aaaa0000caaa0000deaa00002eab0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

@@ -33,6 +33,7 @@ public class TokenAnimator : MonoBehaviour
             token.GetComponent<Renderer>().material = highlightMaterial;
 
             yield return new WaitForSeconds(0.5f);
+
         }
 
         yield return new WaitForSeconds(1f);

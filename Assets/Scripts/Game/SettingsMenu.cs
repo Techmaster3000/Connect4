@@ -20,6 +20,9 @@ public class SettingsMenu : MonoBehaviour
     private Toggle graphicsToggleMedium;
     [SerializeField]
     private Toggle graphicsToggleLow;
+    private Color defaultColor = Color.white;
+    [SerializeField]
+    private Color selectedColor;
 
 
 
@@ -27,7 +30,12 @@ public class SettingsMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        loadFpsLimit();
+        int shadowSetting = PlayerPrefs.GetInt("ShadowSetting", 2);
+        setShadows(shadowSetting);
+        int graphicsSetting = PlayerPrefs.GetInt("GraphicsSetting", 2);
+        setGraphics(graphicsSetting);
+
 
 
     }
@@ -60,31 +68,35 @@ public class SettingsMenu : MonoBehaviour
             case 1: // Low
                 QualitySettings.shadowDistance = 10f;
                 QualitySettings.shadowResolution = ShadowResolution.Low;
-                QualitySettings.shadowProjection = ShadowProjection.CloseFit;
+                QualitySettings.shadows = ShadowQuality.HardOnly; // Assuming low shadows means hard shadows only
                 PlayerPrefs.SetInt("ShadowSetting", 1);
-                shadowsToggleLow.isOn = true;
-
+                shadowsToggleLow.GetComponent<Image>().color = selectedColor;
+                shadowsToggleMedium.GetComponent<Image>().color = defaultColor;
+                shadowsToggleHigh.GetComponent<Image>().color = defaultColor;
                 break;
             case 2: // Medium
                 QualitySettings.shadowDistance = 20f;
                 QualitySettings.shadowResolution = ShadowResolution.Medium;
-                QualitySettings.shadowProjection = ShadowProjection.CloseFit;
+                QualitySettings.shadows = ShadowQuality.HardOnly; // Assuming medium shadows means all shadows
                 PlayerPrefs.SetInt("ShadowSetting", 2);
-                shadowsToggleMedium.isOn = true;
+                shadowsToggleLow.GetComponent<Image>().color = defaultColor;
+                shadowsToggleMedium.GetComponent<Image>().color = selectedColor;
+                shadowsToggleHigh.GetComponent<Image>().color = defaultColor;
                 break;
             case 3: // High
                 QualitySettings.shadowDistance = 50f;
                 QualitySettings.shadowResolution = ShadowResolution.High;
-                QualitySettings.shadowProjection = ShadowProjection.CloseFit;
+                QualitySettings.shadows = ShadowQuality.All; // Assuming high shadows means all shadows
                 PlayerPrefs.SetInt("ShadowSetting", 3);
-                shadowsToggleHigh.isOn = true;
+                shadowsToggleLow.GetComponent<Image>().color = defaultColor;
+                shadowsToggleMedium.GetComponent<Image>().color = defaultColor;
+                shadowsToggleHigh.GetComponent<Image>().color = selectedColor;
                 break;
             default:
                 Debug.LogWarning("Invalid shadow setting selected.");
                 return;
         }
         Debug.Log("Shadows set to: " + setting);
-
     }
     public void setGraphics(int setting)
     {
@@ -93,25 +105,28 @@ public class SettingsMenu : MonoBehaviour
             case 1: // Low
                 QualitySettings.SetQualityLevel(0, true);
                 PlayerPrefs.SetInt("GraphicsSetting", 1);
-                graphicsToggleLow.isOn = true;
+                graphicsToggleLow.GetComponent<Image>().color = selectedColor;
+                graphicsToggleMedium.GetComponent<Image>().color = defaultColor;
+                graphicsToggleHigh.GetComponent<Image>().color = defaultColor;
                 break;
             case 2: // Medium
                 QualitySettings.SetQualityLevel(2, true);
                 PlayerPrefs.SetInt("GraphicsSetting", 2);
-                graphicsToggleMedium.isOn = true;
+                graphicsToggleLow.GetComponent<Image>().color = defaultColor;
+                graphicsToggleMedium.GetComponent<Image>().color = selectedColor;
+                graphicsToggleHigh.GetComponent<Image>().color = defaultColor;
                 break;
             case 3: // High
                 QualitySettings.SetQualityLevel(5, true);
                 PlayerPrefs.SetInt("GraphicsSetting", 3);
-                graphicsToggleHigh.isOn = true;
+                graphicsToggleLow.GetComponent<Image>().color = defaultColor;
+                graphicsToggleMedium.GetComponent<Image>().color = defaultColor;
+                graphicsToggleHigh.GetComponent<Image>().color = selectedColor;
                 break;
             default:
                 Debug.LogWarning("Invalid graphics setting selected.");
                 break;
         }
         Debug.Log("Graphics set to: " + setting);
-
-
-
     }
 }
